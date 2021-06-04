@@ -12,7 +12,7 @@ const HomeStackNavigator = () => {
   return (
     <Stack.Navigator screenOptions={screenOptionStyle}>
       <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Detail" component={Detail} />
+      {/* <Stack.Screen name="Detail" component={Detail} /> */}
     </Stack.Navigator>
   );
 };

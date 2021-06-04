@@ -78,17 +78,17 @@ const Home = (props) => {
             onValueChange={(itemValue, itemIndex) => setCity(itemValue)}
           >
             <Picker.Item
-              label="Los Angeles"
-              value="Los Angeles"
-              style={{ fontWeight: "bold" }}
-            />
-            <Picker.Item
               label="Dhaka"
               value="Dhaka"
               style={{ fontWeight: "bold" }}
             />
             <Picker.Item
-              label="Chittagong"
+              label="Rajshahi"
+              value="Dhaka"
+              style={{ fontWeight: "bold" }}
+            />
+            <Picker.Item
+              label="Rajshahi"
               value="Chittagong"
               style={{ fontWeight: "bold" }}
             />
@@ -110,7 +110,7 @@ const Home = (props) => {
             fontWeight: "bold",
           }}
         >
-          Food that
+          All Products,
         </Text>
         <Text
           style={{
@@ -118,7 +118,7 @@ const Home = (props) => {
             fontWeight: "bold",
           }}
         >
-          meet your needs.
+          that you needs.
         </Text>
       </View>
 
@@ -126,114 +126,6 @@ const Home = (props) => {
         getCategoryProducts={getCategoryProducts}
         categories={categories}
       />
-      {/* <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        style={{ marginTop: 40 }}
-      >
-        <View
-          style={{
-            alignItems: "center",
-            flexDirection: "row",
-            backgroundColor: "#f9dd7a",
-            marginHorizontal: 15,
-            borderRadius: 25,
-            paddingVertical: 5,
-            paddingHorizontal: 15,
-          }}
-        >
-          <Image
-            source={require("../images/5.png")}
-            style={{ height: 40, width: 40 }}
-          />
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 18,
-              paddingLeft: 10,
-            }}
-          >
-            Burgers
-          </Text>
-        </View>
-
-        <View
-          style={{
-            alignItems: "center",
-            flexDirection: "row",
-            backgroundColor: "#e5e4eb",
-            marginHorizontal: 15,
-            borderRadius: 25,
-            paddingVertical: 5,
-            paddingHorizontal: 15,
-          }}
-        >
-          <Image
-            source={require("../images/10.png")}
-            style={{ height: 40, width: 40 }}
-          />
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 18,
-              paddingLeft: 10,
-            }}
-          >
-            Burrito
-          </Text>
-        </View>
-
-        <View
-          style={{
-            alignItems: "center",
-            flexDirection: "row",
-            backgroundColor: "#e4e5eb",
-            marginHorizontal: 15,
-            borderRadius: 25,
-            paddingVertical: 5,
-            paddingHorizontal: 15,
-          }}
-        >
-          <Image
-            source={require("../images/7.png")}
-            style={{ height: 40, width: 40 }}
-          />
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 18,
-              paddingLeft: 10,
-            }}
-          >
-            Salads
-          </Text>
-        </View>
-        <View
-          style={{
-            alignItems: "center",
-            flexDirection: "row",
-            backgroundColor: "#e4e5eb",
-            marginHorizontal: 15,
-            borderRadius: 25,
-            paddingVertical: 5,
-            paddingHorizontal: 15,
-          }}
-        >
-          <Image
-            source={require("../images/6.png")}
-            style={{ height: 40, width: 40 }}
-          />
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 18,
-              paddingLeft: 10,
-            }}
-          >
-            Pizza
-          </Text>
-        </View>
-      </ScrollView> */}
 
       <View
         style={{
@@ -266,45 +158,7 @@ const Home = (props) => {
         </View>
       </View>
       <Products products={products} />
-      {/* <View
-        style={{
-          flexDirection: "row",
-          marginHorizontal: 15,
-          marginTop: 30,
-        }}
-      >
-        <Product
-          image={require("../images/4.png")}
-          title="Smokehouse"
-          price="12.99"
-          onPress={() => props.navigation.navigate("Detail")}
-        />
-        <Product
-          image={require("../images/9.png")}
-          title="Honey Chilli"
-          price="9.99"
-          marginTop={25}
-        />
-      </View>
-      <View
-        style={{
-          flexDirection: "row",
-          marginHorizontal: 15,
-          marginTop: 30,
-        }}
-      >
-        <Product
-          image={require("../images/6.png")}
-          title="Pizza House"
-          price="12.99"
-        />
-        <Product
-          image={require("../images/10.png")}
-          title="Burrito"
-          price="9.99"
-          marginTop={30}
-        />
-      </View> */}
+
     </ScrollView>
   );
 };

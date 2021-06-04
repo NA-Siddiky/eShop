@@ -81,7 +81,6 @@ const Detail = (props) => {
             <Text style={{ fontWeight: "bold", fontSize: 18 }}> - </Text>
           </TouchableOpacity>
         </View>
-        {/* ..................................... */}
         <View
           style={{
             flexDirection: "row",
