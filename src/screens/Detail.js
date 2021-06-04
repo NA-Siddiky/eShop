@@ -246,8 +246,7 @@ const Detail = (props) => {
             textAlign: "justify",
           }}
         >
-          The most unique fire grilled patty, flame grilled, charred, seared,
-          well-done All natural beef, grass-feed beef, Fiery, juicy, greacy.
+          Testing food details, well-done All natural beef, grass-feed beef, Fiery, juicy, greacy.
           delicious moist The most unique fire grilled patty, flame grilled,
           charred, seared, well-done All natural beef, grass-feed beef, Fiery,
           juicy.

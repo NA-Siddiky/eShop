@@ -249,7 +249,7 @@ const Home = (props) => {
           image={require("../images/10.png")}
           title="Burrito"
           price="9.99"
-          marginTop={25}
+          marginTop={30}
         />
       </View>
     </ScrollView>
