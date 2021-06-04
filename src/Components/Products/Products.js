@@ -22,6 +22,7 @@ export default function Products(props) {
             image={product.image}
             title={product.productName}
             price={product.price}
+            brandName={product.brandName}
             onData={() => navigation.navigate("Details")}
           />
         ))}

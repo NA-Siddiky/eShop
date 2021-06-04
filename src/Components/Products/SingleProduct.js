@@ -31,7 +31,7 @@ const SingleProduct = (props) => {
             fontSize: 16,
           }}
         >
-          290 Calories
+          {brandName}
         </Text>
       </View>
       <Image
@@ -61,7 +61,7 @@ const SingleProduct = (props) => {
           color: "#848385",
         }}
       >
-        Beef Burger
+        ${price}
       </Text>
     </TouchableOpacity>
   );
