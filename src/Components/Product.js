@@ -37,7 +37,8 @@ const Product = (props) => {
         </Text>
       </View>
       <Image
-        source={props.image}
+        source={require("../images/1.png")}
+        //  houoijkloijiopjp
         style={{
           height: 105,
           alignSelf: "center",

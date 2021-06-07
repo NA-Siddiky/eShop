@@ -1,10 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Image, Text } from "react-native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "@expo/vector-icons/Entypo";
 
-const Detail = (props) => {
+const Detail = ({ route, navigation }) => {
+  const { productId } = route.params._id;
+  console.log(route.params._id);
+
+  const [products, setProducts] = useState([]);
+
   const [quantity, setQuantity] = useState(1);
+
+  useEffect(() => {
+    async function fetchSingleProduct() {
+      await fetch(`https://cryptic-dawn-15211.herokuapp.com/products/60b265275183a850e0828195`)
+        .then((res) => res.json())
+        .then((data) => {
+          setProducts(data);
+        });
+    }
+    fetchSingleProduct();
+  }, []);
+  console.log(products);
+
+  const {
+    catagory,
+    shopName,
+    productName,
+    brandName,
+    image,
+    price,
+    rating,
+    description,
+  } = products;
 
   return (
     <View style={{ backgroundColor: "#FFF" }}>
@@ -18,7 +46,7 @@ const Detail = (props) => {
           }}
         >
           <View style={{ width: "10%" }}>
-            <TouchableOpacity onPress={() => props.navigation.goBack()}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
               <Image source={require("../images/2.png")} />
             </TouchableOpacity>
           </View>
@@ -41,7 +69,7 @@ const Detail = (props) => {
                   fontSize: 16,
                 }}
               >
-                290 Calories
+                {shopName}
               </Text>
             </View>
           </View>
@@ -51,7 +79,7 @@ const Detail = (props) => {
         </View>
 
         <Image
-          source={require("../images/5.png")}
+          source={{ uri: image }}
           style={{ height: 300, width: 300, alignSelf: "center" }}
         />
         <View
@@ -96,7 +124,7 @@ const Detail = (props) => {
                 fontSize: 25,
               }}
             >
-              Smokehouse
+              {brandName}
             </Text>
             <Text
               style={{
@@ -105,7 +133,7 @@ const Detail = (props) => {
                 color: "#a4a4a9",
               }}
             >
-              Beef burger
+              {productName}
             </Text>
           </View>
           <Text
@@ -115,7 +143,7 @@ const Detail = (props) => {
               marginLeft: 65,
             }}
           >
-            $12.99
+            ${price}
           </Text>
         </View>
         <Text
@@ -126,104 +154,18 @@ const Detail = (props) => {
             marginHorizontal: 20,
           }}
         >
-          Ingredients
+          Category: {catagory}
         </Text>
-
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          style={{ marginTop: 20, marginHorizontal: 20 }}
+        <Text
+          style={{
+            fontWeight: "bold",
+            fontSize: 20,
+            marginTop: 30,
+            marginHorizontal: 20,
+          }}
         >
-          <View
-            style={{
-              borderRadius: 15,
-              borderWidth: 0.1,
-              paddingHorizontal: 12,
-              paddingVertical: 8,
-              marginRight: 10,
-            }}
-          >
-            <Image
-              source={require("../images/11.png")}
-              style={{ height: 30, width: 30 }}
-            />
-          </View>
-
-          <View
-            style={{
-              borderRadius: 15,
-              borderWidth: 0.1,
-              paddingHorizontal: 12,
-              paddingVertical: 8,
-              marginRight: 10,
-            }}
-          >
-            <Image
-              source={require("../images/13.png")}
-              style={{ height: 30, width: 30 }}
-            />
-          </View>
-
-          <View
-            style={{
-              borderRadius: 15,
-              borderWidth: 0.1,
-              paddingHorizontal: 12,
-              paddingVertical: 8,
-              marginRight: 10,
-            }}
-          >
-            <Image
-              source={require("../images/12.png")}
-              style={{ height: 30, width: 30 }}
-            />
-          </View>
-
-          <View
-            style={{
-              borderRadius: 15,
-              borderWidth: 0.1,
-              paddingHorizontal: 12,
-              paddingVertical: 8,
-              marginRight: 10,
-            }}
-          >
-            <Image
-              source={require("../images/8.png")}
-              style={{ height: 30, width: 30 }}
-            />
-          </View>
-
-          <View
-            style={{
-              borderRadius: 15,
-              borderWidth: 0.1,
-              paddingHorizontal: 12,
-              paddingVertical: 8,
-              marginRight: 10,
-            }}
-          >
-            <Image
-              source={require("../images/bl.png")}
-              style={{ height: 30, width: 30 }}
-            />
-          </View>
-
-          <View
-            style={{
-              borderRadius: 15,
-              borderWidth: 0.1,
-              paddingHorizontal: 12,
-              paddingVertical: 8,
-              marginRight: 10,
-            }}
-          >
-            <Image
-              source={require("../images/7.png")}
-              style={{ height: 30, width: 30 }}
-            />
-          </View>
-        </ScrollView>
+          Ratings: {rating}/5
+        </Text>
         <Text
           style={{
             fontWeight: "bold",
@@ -245,10 +187,7 @@ const Detail = (props) => {
             textAlign: "justify",
           }}
         >
-          Testing food details, well-done All natural beef, grass-feed beef, Fiery, juicy, greacy.
-          delicious moist The most unique fire grilled patty, flame grilled,
-          charred, seared, well-done All natural beef, grass-feed beef, Fiery,
-          juicy.
+          {description}
         </Text>
       </ScrollView>
       <View

@@ -4,6 +4,7 @@ import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 
 export default function Catagories(props) {
   const { categories, getCategoryProducts } = props;
+
   return (
     <ScrollView
       horizontal
@@ -12,6 +13,7 @@ export default function Catagories(props) {
     >
       {categories.map((category) => (
         <TouchableOpacity
+          key={category.id}
           onPress={() => getCategoryProducts(category.categoryTitle)}
         >
           <View
@@ -27,8 +29,8 @@ export default function Catagories(props) {
             onPress
           >
             <Image
-              source={category.categoryImg}
-              style={{ height: 40, width: 40 }}
+              source={{ uri: category.categoryImg }}
+              style={{ height: 40, width: 40, borderRadius: 10 }}
             />
             <Text
               style={{

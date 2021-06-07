@@ -1,17 +1,19 @@
 import React from "react";
 import { View, Image, TouchableOpacity, Text } from "react-native";
 
-const SingleProduct = (props) => {
-  const { image, title, price, brandName } = props;
+const SingleProduct = ({ navigation, product, marginTop }) => {
+  // console.log(props)
+  const { image, price, brandName, productName, _id } = product;
   return (
     <TouchableOpacity
-      onPress={props.onData}
+      onPress={() => navigation.navigate("Details", { _id: _id })}
       style={{
         backgroundColor: "#f5f5fa",
         height: 280,
         width: 160,
         borderRadius: 20,
-        marginTop: props.marginTop,
+        marginTop: marginTop,
+        marginBottom: 10,
         marginRight: 10,
       }}
     >
@@ -23,7 +25,6 @@ const SingleProduct = (props) => {
           marginTop: 20,
         }}
       >
-        <Image source={image} style={{ height: 25, width: 20 }} />
         <Text
           style={{
             paddingHorizontal: 10,
@@ -35,26 +36,29 @@ const SingleProduct = (props) => {
         </Text>
       </View>
       <Image
-        source={image}
+        source={{ uri: image }}
         style={{
-          height: 105,
+          height: 150,
           alignSelf: "center",
-          width: 130,
-          marginTop: 15,
-          marginBottom: 15,
+          width: 140,
+          marginTop: 10,
+          marginBottom: 10,
+          borderRadius: 20,
         }}
       />
       <Text
         style={{
+          alignSelf: "center",
           fontSize: 18,
           fontWeight: "bold",
           paddingHorizontal: 10,
         }}
       >
-        {title}
+        {productName}
       </Text>
       <Text
         style={{
+          alignSelf: "center",
           fontSize: 15,
           fontWeight: "bold",
           paddingHorizontal: 10,
